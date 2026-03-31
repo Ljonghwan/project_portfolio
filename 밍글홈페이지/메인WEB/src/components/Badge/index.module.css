@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 23px;
+    color: var(--Main3, #FFF);
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0 4px;
+    border-radius: 4px;
+    background: var(--Main2);
+    flex-shrink: 0;
+}
+.title {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+.img {
+    width: 20px;
+}

@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    border-radius: 8px;
+    border: 1px solid var(--Grey_D, #DDD);
+    background: var(--White, #FFF);
+    padding: 0 13px;
+    gap: 10px;
+    width: 150px;
+}
+.container input {
+    border: none !important;
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    outline: none;
+    width: 36px;
+    height: 36px;
+    aspect-ratio: 1/1;
+}
+.container input+label {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    flex: 1;
+}

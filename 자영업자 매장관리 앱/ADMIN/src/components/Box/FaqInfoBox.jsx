@@ -1,0 +1,262 @@
+import { useState, useEffect, useRef, memo, useCallback } from 'react'
+import { motion } from "framer-motion";
+import { useNavigate, useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import _ from "lodash";
+import dayjs from "dayjs";
+import { Editor, Viewer } from '@toast-ui/react-editor';
+import Zoom from 'react-medium-image-zoom';
+
+import Loading from "@/components/Loading";
+import Input from "@/components/Input";
+import InputSelect from "@/components/InputSelect";
+import TextArea from "@/components/TextArea";
+import InputRadio from "@/components/InputRadio";
+
+import InfoBox from '@/components/InfoBox';
+
+import API from "@/libs/api";
+
+import consts from "@/libs/consts";
+import { stripHtml, numFormat } from "@/libs/utils";
+import { usePopup, useConfig } from '@/store';
+
+const sorts = [
+    { key: 'idx', od: 'desc', label: '최신순' },
+    { key: 'createdAt', od: 'asc', label: '오래된 순' },
+];
+
+export default function PolicyInfoBox({
+    style,
+    detail,
+    dataList,
+    closeFunc,
+    onUpdate = () => { },
+}) {
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const { openPopup } = usePopup();
+    const { configOptions } = useConfig();
+
+    const ref = useRef();
+    const editor = useRef();
+
+    const [item, setItem] = useState(detail || { status: 1 })
+
+    const [edit, setEdit] = useState();
+    const [type, setType] = useState("");
+
+    useEffect(() => {
+        window.history.pushState(null, "", "");
+
+        window.addEventListener("popstate", closeFunc);
+
+        return () => {
+            window.removeEventListener("popstate", closeFunc);
+        };
+    }, []);
+
+    // 저장/등록
+    const updateFunc = async () => {
+
+        if (!item?.title) {
+            toast.error("제목을 입력하세요.");
+            return;
+        }
+
+        if (!item?.comment) {
+            toast.error("답변을 입력하세요.");
+            return;
+        }
+
+        if (!item?.cate) {
+            toast.error("카테고리를 선택하세요.");
+            return;
+        }
+
+        if (!item?.status) {
+            toast.error("노출 여부를 선택하세요.");
+            return;
+        }
+
+        let sender = {
+            item: item
+        }
+        const { data, error } = await API.post('/admin/faq/update', sender);
+
+        setEdit(false);
+
+        if (error) {
+            // toast.error(error?.message)
+            return;
+        }
+
+        toast.success("저장되었습니다.")
+        onUpdate();
+        closeFunc();
+    }
+
+    useEffect(() => {
+
+        if (!detail?.idx) {
+            setEdit(true);
+        }
+        setItem(detail || { status: 1 });
+
+    }, [detail])
+
+    const handleChange = ({ key, value }) => {
+        setItem(prev => ({
+            ...prev,
+            [key]: value
+        }));
+    };
+
+    const deleteFunc = async () => {
+        openPopup({
+            title: "삭제",
+            message: "삭제 하시겠습니까?",
+            warning: "삭제할 경우 다시 복구되지 않습니다. ",
+            button: "삭제",
+            onPress: async () => {
+
+                let sender = { idx: item?.idx };
+                const { data, error } = await API.post('/admin/faq/delete', sender);
+                if (error) {
+                    // toast.error(error?.message)
+                    return;
+                }
+
+                toast.success("삭제 되었습니다.")
+
+                onUpdate();
+                closeFunc();
+            },
+            buttonCencle: "취소",
+            onCancelPress: () => { }
+        })
+    }
+
+    return (
+        <div className='content_form2 animate__animated animate__faster animate__fadeInRight'>
+            <div ref={ref} className={`box rect`} style={{ overflow: 'auto', paddingBottom: 24, ...style }}>
+                <div className='box_container_form' style={{ paddingBottom: 0 }}>
+                    <div className='title_box' style={{}}>
+                        <div className="page_title_box" >
+                            <p>자주묻는질문 관리</p>
+                        </div>
+
+                        <div className="" style={{ display: "flex", gap: 10 }}>
+                            <button className='btn' onClick={closeFunc}>목록으로</button>
+
+                            {edit ?
+                                <button className='btn grey' onClick={() => {
+                                    if (detail?.idx) {
+                                        setEdit(false);
+                                    } else {
+                                        closeFunc();
+                                    }
+                                }}>{"취소"}</button>
+                                :
+                                <button className='btn grey' onClick={deleteFunc}>{"삭제"}</button>
+                            }
+                            <button className='btn black' onClick={() => {
+                                if (edit) {
+                                    // 저장
+                                    updateFunc();
+                                } else {
+                                    // 수정
+                                    setEdit(true);
+                                    setTimeout(() => {
+                                        editor.current?.getInstance().setHTML(detail?.comment || "");
+                                    }, 50)
+                                }
+                            }}>{edit ? "저장" : "수정"}</button>
+                        </div>
+                    </div>
+
+                    <div className='info_container'>
+                        {!edit ? <>
+                            <div className="" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 20 }}>
+                                <p className='title_20 bold_600 word flex'>Q. {item?.title}</p>
+                                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 30 }}>
+                                    {/* <p className='title_16 color_343330'>{numFormat(item?.view)} 조회</p> */}
+                                    <p className='title_16 color_5A6BFF'>{configOptions.faqOptions?.find(x => x?.idx === item?.cate)?.title}</p>
+                                    <p className='title_16 color_343330'>{dayjs(item?.createdAt).format("YYYY-MM-DD")}</p>
+                                </div>
+                            </div>
+                            <hr className='line mt_24' />
+
+                            <div className='edit mt_36'>
+                                <p style={{ whiteSpace: 'pre', lineHeight: 1.4 }} >{item?.comment}</p>
+                            </div>
+
+                            <hr className='line mt_48' />
+                        </> : <>
+                            <div className={'content_box mt_20'}>
+                                {/* <InputSelect
+                                    style={{ width: 490 }}
+                                    name="status"
+                                    value={type}
+                                    setValue={setType}
+                                    option={consts.policyTypes}
+                                    placeholder={"유형"}
+                                /> */}
+
+                                <Input
+                                    className="input_text"
+                                    type="text"
+                                    placeholder="제목을 입력해주세요."
+                                    value={item?.title}
+                                    setValue={(v) => handleChange({ key: 'title', value: v })}
+                                    maxlength={100}
+                                />
+
+                                <TextArea
+                                    className="input_text"
+                                    type="text"
+                                    placeholder="답변을 입력해주세요."
+                                    value={item?.comment}
+                                    setValue={(v) => handleChange({ key: 'comment', value: v })}
+                                    maxlength={1000}
+                                />
+
+                                <div className='form_div_list'>
+                                    <div className='form_div'>
+                                        <p>카테고리</p>
+                                        <div>
+                                            <InputSelect
+                                                style={{ width: 490 }}
+                                                name="cate"
+                                                value={item?.cate}
+                                                setValue={(v) => handleChange({ key: 'cate', value: v })}
+                                                option={configOptions.faqOptions}
+                                                placeholder={'선택'}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className='form_div'>
+                                        <p>노출 여부</p>
+                                        <div>
+                                            <InputRadio
+                                                options={consts.viewStatusConsts?.filter(x => x?.idx)}
+                                                value={item?.status}
+                                                setValue={(v) => handleChange({ key: 'status', value: v })}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </>}
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    )
+}

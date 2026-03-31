@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    padding: 0 7px;
+    background-color: #F5F7FA;
+    border-radius: 3px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    cursor: pointer;
+    aspect-ratio: 1/1;
+}
+.item > img {
+    transition: all .2s;
+}
+.active > img {
+    filter: invert(0.2) sepia(1) saturate(5) hue-rotate(175deg);
+}

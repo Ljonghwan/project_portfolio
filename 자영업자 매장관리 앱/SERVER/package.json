@@ -1,0 +1,51 @@
+{
+  "name": "ownertalk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pm2": "pm2 start start.js --name api-server --time --watch --ignore-watch=\"public/* models/* .git/*\"",
+    "pm2:live": "pm2-runtime start start.js --name api-server",
+    "pm2:cron": "pm2 start devcron.js --name cron-server --time --watch --ignore-watch=\"public/* models/* .git/*\" "
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.71.2",
+    "@aws-sdk/client-s3": "^3.962.0",
+    "@aws-sdk/client-secrets-manager": "^3.962.0",
+    "@aws-sdk/s3-request-presigner": "^3.974.0",
+    "@pdf-lib/fontkit": "^1.1.1",
+    "axios": "^1.12.2",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dayjs": "^1.11.18",
+    "dotenv": "^17.2.3",
+    "ejs": "^4.0.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "express-session": "^1.19.0",
+    "firebase-admin": "^13.6.0",
+    "hashids": "^2.3.0",
+    "helmet": "^8.1.0",
+    "install": "^0.13.0",
+    "jsonwebtoken": "^9.0.2",
+    "node-cron": "^4.2.1",
+    "nodemailer": "^7.0.9",
+    "npm": "^11.7.0",
+    "openai": "^6.18.0",
+    "pdf-lib": "^1.17.1",
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7",
+    "sequelize-cli": "^6.6.3",
+    "sharp": "^0.34.4",
+    "urlencode": "^2.0.0"
+  },
+  "devDependencies": {
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
