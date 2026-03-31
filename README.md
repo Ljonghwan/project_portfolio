@@ -101,29 +101,22 @@
 
 | 프로젝트 | 설명 | 주요 기술 |
 |---------|------|----------|
-| **Lime** | 소셜/커뮤니케이션 플랫폼 | React, Sendbird (영상통화/채팅), Firebase, 소셜 로그인 |
+| **Lime** | 상담 플랫폼 | React, Sendbird (영상통화/채팅), Firebase, 소셜 로그인 |
 | **ESR** | 부동산 관리 시스템 | React, Socket.io, PDF, 지도 API, DnD |
-| **PMS** | 프로퍼티 관리 시스템 | React, 음성인식, PDF, 지도 API, DnD |
-| **JJNomad** | 에듀테크 플랫폼 | React, 차트, DnD, Fullpage Scroll |
-| **Layhome** | 부동산 매물 플랫폼 | React, Redux, 날짜 선택 |
-| **MyCash** | 개인 재무 관리 | React, 카카오맵, PDF 내보내기 |
-| **Portfolio** | 3D 인터랙티브 포트폴리오 | React, Three.js, Spline, Vite |
-| **Tebibox** | 이커머스/리테일 플랫폼 | React, Material-UI, Swiper |
-| **부동산알리다** | 부동산 알림 서비스 | React, 카카오맵, PDF, DnD |
-| **Widai** | 비디오 플레이어 | React 19, Video.js, Vite |
-| **AIWith** | AI 서비스 | React, 카카오/네이버 로그인 |
-| **성과급계산기** | 성과급 계산 유틸리티 | React |
+| **PMS** | 프로젝트 관리 시스템 | React, 차트, TTS |
+| **Layhome** | 부동산 매물 플랫폼 | React, Redux |
+| **Tebibox** | 유아기 놀이중심 교육제공 플랫폼 | React, Material-UI, Swiper |
+| **부동산알리다** | 부동산중개인 고객관리 서비스 | React, 카카오맵, PDF, DnD |
+| **Widai** | AI 메이킹 서비스 | React 19, Video.js, Vite |
+| **AIWith** | AI 메이킹 서비스 | React, 카카오/네이버 로그인 |
 
 ### React Native (Mobile)
 
 | 프로젝트 | 설명 | 주요 기술 |
 |---------|------|----------|
-| **CloneFit** | 피트니스/헬스 트래킹 앱 | RN, 차트, 카메라, TTS, 캘린더 |
-| **GOA** | BLE 웨어러블 헬스 트래킹 앱 | RN, Bluetooth, GPS, 소셜 로그인 |
-| **Lime** | 메시징/영상통화 앱 | RN, Sendbird, 푸시 알림, 채팅 |
-| **BreeDing** | 매칭/데이팅 앱 | RN, 채팅, 갤러리, 영상, 캘린더 |
-| **Lefi** | 금융/주식/크립토 앱 | RN, 차트, Redux |
-| **MyCash** | 개인 재무 관리 앱 | RN, 이미지 처리, 로컬 저장소 |
+| **CloneFit** | AI기반 체성분 관리 앱 | RN, 차트, 카메라, TTS, 캘린더 |
+| **GOA** | BLE 웨어러블 앱 | RN, Bluetooth, GPS, 소셜 로그인 |
+| **Lime** | 상담 플랫폼 앱 | RN, Sendbird, 푸시 알림, 채팅 |
+| **MyCash** | 전당포 앱 | RN, 이미지 처리, 로컬 저장소 |
 | **WATaxi / WADriver** | 택시 승객/기사 앱 | RN, BLE, GPS, 위치 추적, TTS |
-| **JavaTaxi** | 택시/라이드쉐어 앱 | RN, BLE, 위치 추적 |
-| **Yackssock** | 소셜 네트워킹 앱 | RN, Expo, AWS Amplify, Firebase, Lottie |
+| **Yackssock** | 복약알림 BLE 앱 | RN, Expo, AWS Amplify, Firebase, Lottie |
