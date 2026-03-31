@@ -101,22 +101,22 @@
 
 | 프로젝트 | 설명 | 주요 기술 |
 |---------|------|----------|
-| **Lime** | 상담 플랫폼 | React, Sendbird (영상통화/채팅), Firebase, 소셜 로그인 |
-| **ESR** | 부동산 관리 시스템 | React, Socket.io, PDF, 지도 API, DnD |
-| **PMS** | 프로젝트 관리 시스템 | React, 차트, TTS |
-| **Layhome** | 부동산 매물 플랫폼 | React, Redux |
-| **Tebibox** | 유아기 놀이중심 교육제공 플랫폼 | React, Material-UI, Swiper |
-| **부동산알리다** | 부동산중개인 고객관리 서비스 | React, 카카오맵, PDF, DnD |
-| **Widai** | AI 메이킹 서비스 | React 19, Video.js, Vite |
-| **AIWith** | AI 메이킹 서비스 | React, 카카오/네이버 로그인 |
+| **Lime** | 상담 플랫폼 | React, Sendbird (영상통화/채팅), Firebase, Socket.io, Highcharts, 소셜 로그인 |
+| **ESR** | 부동산 관리 시스템 | React, Socket.io, 네이버 지도, PDF, DnD, Redux |
+| **PMS** | 프로젝트 관리 시스템 | React, Socket.io, DnD, Redux, Swiper |
+| **Layhome** | 부동산 매물 플랫폼 | React, Redux, Swiper |
+| **Tebibox** | 유아기 놀이중심 교육제공 플랫폼 | React, Material-UI, Redux, Swiper |
+| **부동산알리다** | 부동산중개인 고객관리 서비스 | React, 카카오맵, 카카오 로그인, PDF, Redux |
+| **Widai** | AI 메이킹 서비스 | React 19, Vite, Video.js |
+| **AIWith** | AI 메이킹 서비스 | React, Zustand, Framer Motion, 카카오/네이버 로그인 |
 
 ### React Native (Mobile)
 
 | 프로젝트 | 설명 | 주요 기술 |
 |---------|------|----------|
-| **CloneFit** | AI기반 체성분 관리 앱 | RN, 차트, 카메라, TTS, 캘린더 |
-| **GOA** | BLE 웨어러블 앱 | RN, Bluetooth, GPS, 소셜 로그인 |
-| **Lime** | 상담 플랫폼 앱 | RN, Sendbird, 푸시 알림, 채팅 |
-| **MyCash** | 전당포 앱 | RN, 이미지 처리, 로컬 저장소 |
-| **WATaxi / WADriver** | 택시 승객/기사 앱 | RN, BLE, GPS, 위치 추적, TTS |
-| **Yackssock** | 복약알림 BLE 앱 | RN, Expo, AWS Amplify, Firebase, Lottie |
+| **CloneFit** | AI기반 체성분 관리 앱 | RN, Vision Camera, Firebase, BLE, 카카오/네이버 로그인, Zustand |
+| **GOA** | BLE 웨어러블 앱 | RN, BLE, GPS, Firebase, 카카오/네이버/Google 로그인, Redux |
+| **Lime** | 상담 플랫폼 앱 | RN, Sendbird, Firebase, 푸시 알림 |
+| **MyCash** | 전당포 앱 | RN, Firebase, 이미지 처리, 다음 우편번호, Redux |
+| **WATaxi / WADriver** | 택시 승객/기사 앱 | RN, BLE, GPS, Background Timer, Redux |
+| **Yackssock** | 복약알림 BLE 앱 | RN, Expo, AWS Amplify, Firebase, Lottie, Redux |
