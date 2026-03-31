@@ -10,26 +10,7 @@
 
 ## 프로젝트 목록
 
-### 1. 소개팅 앱 `2026.01 ~ 진행 중`
-실시간 매칭 기반 소셜 데이팅 플랫폼
-
-| 구분 | 기술 |
-|------|------|
-| Frontend | React Native, Expo, Zustand |
-| Backend | Node.js (비공개) |
-| Infra | Firebase, Twilio |
-
-- Socket.io 실시간 1:1 채팅 및 Twilio Voice SDK 음성 통화
-- 4개 플랫폼 소셜 로그인 (카카오, 네이버, Google, Apple)
-- iOS/Android 인앱 결제 및 정기 구독 시스템
-
-**상태:** 개발 완료, 기능 추가 기획 중
-
-[상세보기 →](./소개팅%20앱)
-
----
-
-### 2. 자영업자 매장관리 앱 `2025.10 ~ 2026.02`
+### 1. 자영업자 매장관리 앱 `2025.10 ~ 2026.02`
 자영업자를 위한 올인원 매장 관리 솔루션 (앱 + 서버 + 관리자 웹)
 
 | 구분 | 기술 |
@@ -47,6 +28,25 @@
 **상태:** 개발 완료, 기능 추가 기획 중 | 서버 소스 일부 공개
 
 [상세보기 →](./자영업자%20매장관리%20앱)
+
+---
+
+### 2. 소개팅 앱 `2026.01 ~ 진행 중`
+실시간 매칭 기반 소셜 데이팅 플랫폼
+
+| 구분 | 기술 |
+|------|------|
+| Frontend | React Native, Expo, Zustand |
+| Backend | Node.js (비공개) |
+| Infra | Firebase, Twilio |
+
+- Socket.io 실시간 1:1 채팅 및 Twilio Voice SDK 음성 통화
+- 4개 플랫폼 소셜 로그인 (카카오, 네이버, Google, Apple)
+- iOS/Android 인앱 결제 및 정기 구독 시스템
+
+**상태:** 개발 완료, 기능 추가 기획 중
+
+[상세보기 →](./소개팅%20앱)
 
 ---
 
@@ -81,7 +81,7 @@
 - Framer Motion 페이지 전환 효과 및 커스텀 커서
 - 반응형 웹 디자인 (Mobile/Tablet/Desktop)
 
-**상태:** 운영 중 | [mingle.company](https://mingle.company)
+**상태:** 운영 중 | [mingle.company](https://mingle.company) | [sub.mingle.company](https://sub.mingle.company)
 
 [상세보기 →](./밍글홈페이지)
 
