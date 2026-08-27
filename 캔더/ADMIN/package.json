@@ -1,0 +1,31 @@
+{
+  "name": "candour-admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3112",
+    "build": "next build",
+    "start": "next start -p 3112",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^6.2.3",
+    "@ant-design/nextjs-registry": "^1.3.0",
+    "@tiptap/pm": "^3.29.2",
+    "@tiptap/react": "^3.29.2",
+    "@tiptap/starter-kit": "^3.29.2",
+    "antd": "^6.4.3",
+    "dayjs": "^1.11.13",
+    "next": "15.5.22",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "recharts": "^2.15.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.1",
+    "typescript": "^5.7.2"
+  }
+}

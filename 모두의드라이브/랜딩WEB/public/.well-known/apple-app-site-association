@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["U6W58J82ZV.com.everydrive.mode"],
+        "components": [
+          {
+            "/": "/link*",
+            "comment": "앱 딥링크 — 그 외 경로는 웹 랜딩으로 남긴다"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+* { box-sizing: border-box; }
+html, body { padding: 0; margin: 0; }
+
+/* 약관 에디터(tiptap, 카드#016 3) — headless 라 기본 스타일이 없다. antd 입력칸 톤에 맞춘 최소 규칙.
+   허용 서식(h1~h3·목록·인용·구분선)만 정의한다. */
+.tt-editor .ProseMirror { min-height: 420px; padding: 14px 16px; outline: none; line-height: 1.7; }
+.tt-editor .ProseMirror:focus { outline: none; }
+.tt-editor .ProseMirror h1 { font-size: 22px; margin: 20px 0 10px; }
+.tt-editor .ProseMirror h2 { font-size: 18px; margin: 18px 0 8px; }
+.tt-editor .ProseMirror h3 { font-size: 15px; margin: 16px 0 6px; }
+.tt-editor .ProseMirror p { margin: 0 0 10px; }
+.tt-editor .ProseMirror ul, .tt-editor .ProseMirror ol { padding-left: 22px; margin: 0 0 10px; }
+.tt-editor .ProseMirror blockquote { margin: 0 0 10px; padding-left: 12px; border-left: 3px solid #e5e7eb; color: #555; }
+.tt-editor .ProseMirror hr { border: none; border-top: 1px solid #e5e7eb; margin: 16px 0; }

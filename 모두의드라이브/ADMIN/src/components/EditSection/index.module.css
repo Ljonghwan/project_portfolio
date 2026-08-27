@@ -1,0 +1,35 @@
+.container {
+    width: 100%;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.titleBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+.title {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    user-select: none;
+}
+.arrow {
+    transition: all .3s ease;
+}
+.container.active .arrow {
+    transform: rotate(180deg);
+}
+
+.content {
+    background-color: #ffffff;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    padding: 24px;
+    padding-top: 0;
+}

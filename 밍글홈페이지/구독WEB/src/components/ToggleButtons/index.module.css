@@ -1,0 +1,47 @@
+.sort_group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 57px;
+    border-radius: 65px;
+    overflow: hidden;
+    background: #F5F5F5;
+    align-self: center;
+}
+
+.btn {
+    position: relative;
+    color: var(--Gray, #A2A2A2);
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.48px;
+
+    padding: 0px 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border: none;
+    background: none;
+    cursor: pointer;
+    z-index: 1;
+    transition: color 0.3s ease;
+    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+}
+
+.active {
+    color: var(--White, #FFF);
+}
+
+/* 이동하는 배경 */
+.background {
+    position: absolute;
+    top: 0; /* padding과 맞춤 */
+    left: 0;
+    height: 100%; /* padding 고려 */
+    background: var(--Word, #00CD97);
+    transition: transform 0.3s ease, width 0.3s ease; /* 너비와 위치 전환 */
+    z-index: 0;
+    border-radius: 65px; /* 둥근 모서리 */
+}

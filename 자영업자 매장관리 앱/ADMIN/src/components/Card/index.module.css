@@ -1,0 +1,161 @@
+.card_contain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    min-height: 137px;
+
+    border-radius: 14px;
+    background: #FFF;
+    box-shadow: 6px 6px 54px 0 rgba(0, 0, 0, 0.05);
+}
+
+
+.card_contain.m {
+    height: 363px;
+}
+
+
+.infobox_title {
+    text-align: center;
+    color: #202224;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.infobox_content {
+    text-align: center;
+    margin-top: 6px;
+    color: #000;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+
+
+.infobox_persent {
+    text-align: center;
+    margin-top: 4px;
+    color: #FF5B06;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.infobox_persent::after {
+    content: "%";
+}
+
+.infobox_persent.add {
+    color: #FF5B06;
+}
+
+.infobox_persent.add::before {
+    content: "▲";
+}
+
+
+.infobox_persent.min {
+    color: #0861E3;
+}
+
+.infobox_persent.min::before {
+    content: "▼";
+}
+
+.infobox_persent.zero {
+    color: #666;
+}       
+.infobox_persent.zero::before {
+    content: "±";
+}
+
+
+
+
+
+
+
+.infobox_count {
+    text-align: center;
+    margin-top: 4px;
+    color: #FF5B06;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.infobox_count::after {
+    content: "건";
+}
+
+.infobox_count.add {
+    color: #FF5B06;
+}
+
+.infobox_count.add::before {
+    content: "+";
+}
+
+
+.infobox_count.min {
+    color: #0861E3;
+}
+
+.infobox_count.min::before {
+    content: "-";
+}
+
+.infobox_count.zero {
+    color: #666;
+}       
+.infobox_count.zero::before {
+    content: "±";
+}
+
+
+
+
+
+.chartTableHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid #E6E8EF;
+    background: #FAFAFA;
+    font-size: 14px;
+    font-weight: 700;
+    height: 65px;
+}
+.chartTableHeader > p {
+    text-align: center;
+    flex: 1
+}
+
+.chartTableBody {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.chartTableBodyItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid #E6E8EF;
+    font-size: 14px;
+    font-weight: 400;
+    height: 100px;
+    
+}
+.chartTableBodyItem > p {
+    text-align: center;
+    flex: 1
+}
+
+
+
+.chartTableBody .infobox_persent {
+    margin-top: 0px;
+    font-size: 14px;
+    font-weight: 700;
+}

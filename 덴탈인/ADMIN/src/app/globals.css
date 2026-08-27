@@ -1,0 +1,31 @@
+/* A-1 B: admin 공통 필터바 — 간격·여백 여유. 전 리스트 페이지의 최상단 필터 Space에 className="admin-filter" 부여. */
+.admin-filter {
+  display: flex !important;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  background: #fafbfd;
+  border: 1px solid #edf0f3;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 16px !important;
+  row-gap: 12px !important;
+  column-gap: 14px !important;
+}
+/* 세로형(여러 줄) 필터: 줄 간격 + 각 줄(가로 Space) 내부 간격 여유. */
+.admin-filter.ant-space-vertical {
+  align-items: stretch;
+}
+.admin-filter .ant-space {
+  row-gap: 10px !important;
+  column-gap: 12px !important;
+}
+/* 라벨-인풋 수직 정렬 유지(줄바꿈 시에도). */
+.admin-filter .ant-space-item {
+  display: inline-flex;
+  align-items: center;
+}
+.ant-descriptions-item-label {
+  width: 140px;
+}

@@ -1,0 +1,37 @@
+.contain {
+    display: flex;
+    width: 100%;
+}
+
+.borderTop {
+    border-top: 1px solid #E9E9E9;
+}
+
+.borderBottom {
+    border-bottom: 1px solid #E9E9E9;
+}
+
+.infoTitle {
+    display: flex;
+    align-items: center;
+    width: 161px;
+    height: 75px;
+    flex-shrink: 0;
+    background-color: #F0F1F5;
+    font-size: 16px;
+    color: #72777A;
+    padding: 30px 24px;
+}
+
+.required::after {
+    content: "*";
+    color: red;
+}
+
+.infoContents {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}

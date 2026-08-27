@@ -1,0 +1,225 @@
+import { useEffect, useState, useRef } from 'react';
+import { View, StyleSheet, Keyboard, TouchableOpacity, useWindowDimensions, Platform } from 'react-native';
+
+import { Stack, router, useLocalSearchParams } from "expo-router";
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useKeyboardAnimation, KeyboardAwareScrollView } from "react-native-keyboard-controller";
+import { Image } from 'expo-image';
+
+// import { GoogleSignin, GoogleSigninButton, statusCodes } from '@react-native-google-signin/google-signin';
+
+import Layout from '@/components/Layout';
+import Text from '@/components/Text';
+import Button from '@/components/Button';
+import Camera from '@/components/Camera';
+
+
+import consts from '@/libs/consts';
+import colors from '@/libs/colors';
+import fonts from '@/libs/fonts';
+import routes from '@/libs/routes';
+import images from '@/libs/images';
+import rootStyle from '@/libs/rootStyle';
+import API from '@/libs/api';
+import lang from '@/libs/lang';
+
+import { ToastMessage, photoShot } from '@/libs/utils';
+
+import { useUser, useSignData, useDriverData, useAlert, useLoader, usePhotoPopup } from '@/libs/store';
+
+export default function Page() {
+
+	const insets = useSafeAreaInsets();
+    const { width, height } = useWindowDimensions();
+
+    const { styles } = useStyle();
+    const { login, pushToken } = useUser();
+    const { setDriverData } = useDriverData();
+    const { openAlertFunc } = useAlert();
+
+    const [ camera, setCamera ] = useState(false);
+    const [ photo, setPhoto ] = useState(null);
+
+    const [ load, setLoad ] = useState(false);
+    const [ disabled, setDisabled ] = useState(true);
+
+    const [ error, setError ] = useState({});
+
+   
+    const startPhoto = async () => {
+
+        const status = await photoShot();
+        console.log('status', status);
+
+        if(status){
+            setCamera(true)
+        }
+        
+    }
+    
+    const takePhoto = (photo) => {
+        setPhoto(photo);
+    }
+
+    const submitFunc = async () => {
+
+        setLoad(true);
+
+        setDriverData({
+            key: 'profile',
+            value: photo
+        })
+        
+        setTimeout(() => {
+            setLoad(false);
+            setTimeout(() => {
+                router.push(routes.joinDriverLicense);
+            }, 10)
+        }, consts.apiDelay)
+        
+    }
+
+    return (
+        <>
+            {!photo ? (
+                <View style={{ flex: 1, backgroundColor: colors.white }}>
+                            
+                    <View style={styles.root}>
+                        <View style={{ gap: 11 }}>
+                            <Text style={styles.title}>{lang({ id: 'register_profile_1' })}</Text>
+                            <Text style={styles.subTitle}>{lang({ id: 'please_register_phot' })}</Text>
+                        </View>
+
+                        <View style={{ gap: 13 }}>
+                            <View style={styles.item}>
+                                <Image source={images.exclamation_circle} style={rootStyle.default} />
+                                <Text style={styles.itemText}>{lang({ id: 'make_sure_your' })}</Text>
+                            </View>
+                            <View style={styles.item}>
+                                <Image source={images.exclamation_circle} style={rootStyle.default} />
+                                <Text style={styles.itemText}>{lang({ id: 'photos_must_be' })}</Text>
+                            </View>
+                            <View style={styles.item}>
+                                <Image source={images.exclamation_circle} style={rootStyle.default} />
+                                <Text style={styles.itemText}>{lang({ id: 'remove_face_covering' })}</Text>
+                            </View>
+                            <View style={styles.item}>
+                                <Image source={images.exclamation_circle} style={rootStyle.default} />
+                                <Text style={styles.itemText}>{lang({ id: 'no_group_photos' })}</Text>
+                            </View>
+                            <View style={styles.item}>
+                                <Image source={images.exclamation_circle} style={rootStyle.default} />
+                                <Text style={styles.itemText}>{lang({ id: 'no_pet_photos' })}</Text>
+                            </View>
+                        </View>
+                    </View>
+
+                    <View style={styles.bottom} >
+                        <Button style={{ width: 120 }} onPress={startPhoto} load={load}>{lang({ id: 'continue' })}</Button>
+                    </View>
+
+                </View>
+            ) : (
+                <View style={{ flex: 1, backgroundColor: colors.white }}>
+            
+                    <View style={styles.root}>
+                        <View style={{ gap: 11 }}>
+                            <Text style={styles.title}>{lang({ id: 'register_profile_1' })}</Text>
+                            <Text style={styles.subTitle}>{lang({ id: 'please_register_phot' })}</Text>
+                        </View>
+
+                        <View style={{ gap: 13, alignSelf: 'center' }}>
+                            <Image source={photo?.uri} style={styles.photo}/>
+                        </View>
+                    </View>
+
+                    <View style={styles.bottomMulti} >
+                        <Button type={2} style={{ flex: 1 }} onPress={startPhoto}>{lang({ id: 'retake_photo' })}</Button>
+                        <Button style={{ width: 120 }} onPress={submitFunc} load={load}>{lang({ id: 'continue' })}</Button>
+                    </View>
+                </View>
+            )}
+           
+
+            <Camera 
+                open={camera} 
+                close={() => {
+                    setCamera(false)
+                }}
+                onSubmit={takePhoto}
+                mode="circle"
+            />
+        </>
+    )
+}
+
+
+const useStyle = () => {
+
+	const insets = useSafeAreaInsets();
+
+	const styles = StyleSheet.create({
+		root: {
+			flex: 1,
+            paddingHorizontal: rootStyle.side,
+            paddingTop: 20,
+            gap: 40,
+		},
+        title: {
+            color: colors.main,
+            fontSize: 30,
+            fontFamily: fonts.extraBold,
+            letterSpacing: -0.64,
+        },
+        subTitle: {
+            color: colors.sub_1,
+            fontSize: 16,
+            lineHeight: 22,
+            fontFamily: fonts.medium,
+            letterSpacing: -0.64,
+        },
+        bottom: {
+            paddingHorizontal: rootStyle.side,
+            paddingBottom: insets?.bottom + 20,
+            alignItems: 'flex-end'
+        },
+        bottomMulti: {
+            paddingHorizontal: rootStyle.side,
+            paddingBottom: insets?.bottom + 20,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 30
+        },
+        item: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: 15
+        },
+        itemText: {
+            fontSize: 16,
+            fontFamily: fonts.medium,
+            letterSpacing: -0.32,
+            lineHeight: 24,
+            color: colors.main
+        },
+
+        
+        rootAfter: {
+            flex: 1,
+            paddingHorizontal: rootStyle.side,
+            paddingTop: 20,
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 20
+        },
+        photo: {
+            width: 271,
+            aspectRatio: 1/1,
+            borderRadius: 1000,
+            backgroundColor: colors.placeholder
+        }
+	})
+
+  	return { styles }
+}

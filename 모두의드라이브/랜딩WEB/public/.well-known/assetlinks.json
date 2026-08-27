@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.everydrive.mode",
+      "sha256_cert_fingerprints": [
+        "99:28:F5:A5:90:15:BF:53:D1:4D:AD:8E:84:F2:26:56:58:53:C4:DE:E8:D8:9C:AB:FE:59:3A:48:D7:DE:BF:4E"
+      ]
+    }
+  }
+]

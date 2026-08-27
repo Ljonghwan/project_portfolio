@@ -1,0 +1,312 @@
+.pop_contain {
+    position: relative;
+    width: 410px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.pop_contain.m {
+    width: 480px;
+}
+
+.pop_contain.l {
+    width: 530px;
+}
+
+.pop_contain.xl {
+    width: 815px;
+}
+
+/* 닫기 버튼 */
+.close_btn {
+    position: absolute;
+    top: 25px;
+    right: 27px;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* 제목 */
+.pop_title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 30px 0;
+}
+
+/* 설명 */
+.pop_desc {
+    margin-bottom: 24px;
+}
+
+.pop_desc p {
+    font-size: 14px;
+    color: #72777A;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* 입력 섹션 */
+.input_section {
+    margin-bottom: 25px;
+}
+
+.input_label {
+    font-size: 16px;
+    color: #1a1a1a;
+    margin-bottom: 17px;
+    font-weight: 500;
+}
+
+.required {
+    color: #ff4d4f;
+    margin-left: 2px;
+}
+
+/* 이메일 입력 래퍼 */
+.email_input_wrapper {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.email_at {
+    font-size: 14px;
+    color: #1a1a1a;
+}
+
+.find_input_email {
+    flex: 1;
+    min-width: 0;
+}
+
+.find_input_select {
+    width: 110px;
+    flex-shrink: 0;
+}
+
+/* 제출 버튼 */
+.submit_btn {
+    width: 100%;
+    height: 48px;
+    background-color: #212B36;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit_btn:hover {
+    opacity: .8;
+}
+
+.submit_btn:disabled {
+    opacity: .5;
+}
+
+.admin_detail_info_secton {
+    display: flex;
+    width: 100%;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 이용정지 팝업 스타일 */
+.suspend_select {
+    width: 100%;
+}
+
+.suspend_textarea {
+    width: 100%;
+    height: 360px;
+    padding: 12px 16px;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #1a1a1a;
+    font-family: inherit;
+    resize: none;
+    transition: border-color 0.2s;
+}
+
+.suspend_textarea:focus {
+    outline: none;
+    border-color: #212B36;
+}
+
+.suspend_textarea::placeholder {
+    color: #919EAB;
+}
+
+.input_helper_text {
+    font-size: 12px;
+    color: #637381;
+    margin-top: 8px;
+}
+
+/* 버튼 그룹 */
+.button_group {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.action_btn {
+    width: 150px;
+    height: 48px;
+    border: none;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.cancel_btn {
+    background-color: #E3E5E5;
+    color: #6C7072;
+}
+
+.cancel_btn:hover {
+    opacity: 0.8;
+}
+
+.submit_btn_dark {
+    background-color: #212B36;
+    color: white;
+}
+
+.submit_btn_dark:hover {
+    opacity: 0.8;
+}
+
+.submit_btn_dark:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 상태 사유 보기 팝업 스타일 */
+.status_info_section {
+    margin-bottom: 20px;
+}
+
+.status_info_label {
+    font-size: 14px;
+    color: #1a1a1a;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.status_info_value {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #F9FAFB;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #637381;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+}
+
+.status_info_value.blue {
+    color: #3766FF;
+}
+
+.status_reason_box {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #F9FAFB;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #637381;
+    min-height: 130px;
+    max-height: 200px;
+    line-height: 1.6;
+    white-space: pre;
+    overflow: auto;
+}
+
+.confirm_btn {
+    width: 320px;
+    height: 48px;
+    background-color: #212B36;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    margin: 0 auto;
+    display: block;
+}
+
+.confirm_btn:hover {
+    opacity: 0.8;
+}
+
+/* 비밀번호 변경 팝업 스타일 */
+.password_field_wrapper {
+    position: relative;
+}
+
+.password_field_wrapper :global(.remove_icon) {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: url('../../../resource/assets/images/remove.svg') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.password_input {
+    width: 100%;
+    height: 48px;
+    padding: 0 40px 0 16px;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #1a1a1a;
+    transition: border-color 0.2s;
+}
+
+.password_input:focus {
+    outline: none;
+    border-color: #212B36;
+}
+
+.password_input::placeholder {
+    color: #72777A;
+}
+
+.password_status_text {
+    color: #FF9F43;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.password_helper_text {
+    font-size: 16px;
+    color: #637381;
+    margin-top: 17px;
+}

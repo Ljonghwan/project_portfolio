@@ -1,0 +1,64 @@
+import { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+import BoardListBox from '@/components/Box/BoardListBox';
+
+import consts from "@/libs/consts";
+import images from "@/libs/images";
+import routes from "@/libs/routes";
+
+import { useDebouncedTimeout } from "@/libs/utils";
+
+import API from "@/libs/api";
+
+import { usePopupComponent } from '@/store';
+
+export default function Page() {
+
+    const { open } = usePopupComponent();
+
+    const [list, setList] = useState([]);
+
+    const [initLoad, setInitLoad] = useState(true);
+    const [load, setLoad] = useState(false);
+
+    const setDebouncedTimeout = useDebouncedTimeout();
+
+    useEffect(() => {
+
+        dataFunc();
+
+    }, [open])
+
+    const dataFunc = async (reset=false) => {
+
+        if(reset) {
+            setInitLoad(true);
+        }
+
+        const { data, error } = await API.post('/admin/board/subscription');
+
+        setList(data || [])
+
+        setDebouncedTimeout(() => {
+            setLoad(false)
+            setInitLoad(false)
+        }, consts.apiDelay); 
+    }
+
+
+	return (
+		<>
+            <BoardListBox 
+                // style={{ flex: 0.25 }}
+                list={list}
+                load={initLoad}
+                type={'subscription'}
+            />
+            
+            {/* <UserListBox /> */}
+            {/* <UserListBox /> */}
+		</>
+	)
+}

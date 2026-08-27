@@ -1,0 +1,30 @@
+.container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+    height: 40px;
+}
+
+.tickerWrapper {
+    display: flex;
+    white-space: nowrap;
+    animation: ticker 2s linear infinite;
+}
+
+.text {
+    display: inline-block;
+    font-size: 23px;
+    font-weight: 300;
+    /* 반복 간 여백 */
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}

@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* Candour 브랜드 디자인 토큰 (DESIGN: Scan Blue + Ink · Pretendard) */
+:root {
+  --bg: #ffffff;
+  --bg2: #f7f9fc;
+  --surface: #ffffff;
+  --blue: #2f6bff;
+  --blue-d: #1e4fd0;
+  --blue-t: #eef3ff;
+  --ink: #0e1524;
+  --ink2: #3a4353;
+  --muted: #7a8496;
+  --line: #e9edf3;
+  --line2: #dfe4ec;
+  --danger: #e5484d;
+  --warn: #b4791a;
+  --warn-t: #fdf0e6;
+  --ok: #1f9d5b;
+  --ok-t: #e7f5ec;
+  --sans: var(--font-pretendard), "Pretendard", system-ui, -apple-system,
+    sans-serif;
+  --t: 0.22s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  /* clip(≠hidden): 가로 넘침만 잘라 가로 스크롤을 막되 **스크롤 컨테이너를 만들지 않는다**.
+     overflow-x:hidden 은 root 를 스크롤 컨테이너로 만들어 position:sticky(랜딩 헤더·신뢰섹션 핀)를
+     Safari 등에서 무력화한다(스크롤하면 헤더가 밀려 올라가고 핀 스크럽이 안 보임). clip 으로 sticky 유지. */
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: #fff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
